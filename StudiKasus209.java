@@ -24,33 +24,54 @@ public class StudiKasus209 {
 
             if (dokumen == 4) {
                 if (peringkat > 0 && peringkat < 4) {
-                    System.out.println("Selamat anda mendapatkan dana pengharagaan");
+                    System.out.println("Status: Selamat anda mendapatkan dana pengharagaan");
 
                 } else {
-                    System.out.println("Juara tidak memenuhi syarat untuk mendapat dana pengharagaan");
+                    System.out.println("Status: Juara tidak memenuhi syarat untuk mendapat dana pengharagaan");
                 }
 
             } else {
 
-                if (peringkat > 4 && peringkat == 0 || (dokumen > 0 && dokumen < 4)) {
-                    System.out.println("Juara tidak memenuhi syarat untuk mendapat dana pengharagaan, dokumen kurang " + (4 - dokumen) + ", Dana penghargaan tidak diberikan");
-
-                } else if (peringkat > 4 || peringkat == 0 && dokumen > 4) {
-                    System.out.println("Juara tidak memenuhi syarat untuk mendapat dana pengharagaan, dokumen tidak valid");
-
-                } else {
-                    if (dokumen > 0 && dokumen < 4) {
-                        System.out.println("Dokumen tidak lengap (kurang " + (4 - dokumen) + " dokumen), Dana penghargaan tidak diberikan");
-                        
+                if (dokumen < 4 && dokumen >= 0) {
+                    if (peringkat > 0 && peringkat < 4) {
+                        System.out.println("Status: Dokumen anda tidak lengkap (kurang " + (4 - dokumen) + "), dana penghargaan tidak diberikan");
                     } else {
-                        System.out.println("Dokumen tidak valid");
-                        
+                        System.out.println("Status: Juara tidak memenuhi syarat dan dokumen tidak lengkap (kurang " + (4 - dokumen) + "), dana penghargaan tidak diberikan");
                     }
-                } 
+                } else {
+                    if (dokumen > 4 && peringkat > 0 && peringkat < 4) {
+                        System.out.println("Status: Dokumen tidak valid");
+                    } else {
+                        System.out.println("Status: Dokumen tidak valid dan juara tidak memenuhi syarat");
+                    }
+                }
+                 
             }
 
-        } else {
+        } else if (jenisKegiatan.equalsIgnoreCase("pkm")){
+            System.out.print("Jumlah Dokumen: ");
+            dokumen = sc.nextInt();
+            System.out.print("Status: ");
+            status = sc.nextInt();
 
+
+            if (status == 1) {
+                System.out.println("Status: Dokumen anda lengkap, anda mendapat dana pengharagaan");
+
+            } else if (status == 0){
+                if (dokumen < 4 && dokumen > 0) {
+                    System.out.println("Status: Dokumen anda tidak lengkap (kurang " + (4 - dokumen) + ") dokumen, dana penghargaan tidak diberikan");
+
+                } else {
+                    System.out.println("Status: Dokumen tidak valid, dana penghargaan tidak diberikan");
+
+                }
+            } else {
+                System.out.println("Status: Kode tidak valid");
+            }
+                
+        } else {
+            System.out.println("Status : Jenis kegiatan tidak memperoleh dana penghargaan.");
         }
 
     }
