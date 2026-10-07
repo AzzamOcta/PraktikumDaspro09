@@ -16,7 +16,7 @@ public class StudiKasus1 {
 
         totalHarga = hargaPerCup * jumlahCup;
 
-        if (totalHarga >= 100000) {
+        if (totalHarga <= 100000) {
             diskon = totalHarga * 10 / 100;
         } else {
             diskon = 0;
@@ -27,13 +27,5 @@ public class StudiKasus1 {
         System.out.println("Harga awal: " + totalHarga);
         System.out.println("Diskon: " + diskon);
         System.out.println("Total: " + totalBayar);
-
-        if (uangBayar >= totalBayar) {
-            kembalian = uangBayar - totalHarga;
-            System.out.println("Kembalian anda: " + kembalian);
-        } else {
-            kurang = totalBayar - uangBayar;
-            System.out.println("Uangmu kurang: " + kurang);
-        }
     }
 }
