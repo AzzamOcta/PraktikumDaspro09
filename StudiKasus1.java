@@ -27,5 +27,13 @@ public class StudiKasus1 {
         System.out.println("Harga awal: " + totalHarga);
         System.out.println("Diskon: " + diskon);
         System.out.println("Total: " + totalBayar);
+
+        if (uangBayar >= totalBayar) {
+            kembalian = uangBayar - totalHarga;
+            System.out.println("Kembalian anda: " + kembalian);
+        } else {
+            kurang = totalBayar - uangBayar;
+            System.out.println("Uangmu kurang: " + kurang);
+        }
     }
 }
